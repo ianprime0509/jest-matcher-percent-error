@@ -1,0 +1,40 @@
+{
+  "name": "jest-matcher-percent-error",
+  "version": "0.1.0",
+  "description": "Add a custom matcher for testing percent error.",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "rollup -c",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianprime0509/jest-matcher-percent-error.git"
+  },
+  "keywords": [
+    "percent",
+    "error",
+    "jest",
+    "matcher",
+    "relative"
+  ],
+  "author": "Ian Johnson <ianprime0509@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianprime0509/jest-matcher-percent-error/issues"
+  },
+  "homepage": "https://github.com/ianprime0509/jest-matcher-percent-error#readme",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "jest": "^22.2.2",
+    "rollup": "^0.55.5"
+  }
+}
