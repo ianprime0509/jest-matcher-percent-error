@@ -1,7 +1,7 @@
 {
   "name": "jest-matcher-percent-error",
   "version": "0.1.0",
-  "description": "Add a custom matcher for testing percent error.",
+  "description": "A Jest matcher for testing percent error.",
   "main": "lib/index.js",
   "module": "src/index.js",
   "files": [

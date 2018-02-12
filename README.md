@@ -1,5 +1,8 @@
 # jest-matcher-percent-error
 
+[![npm](https://img.shields.io/npm/v/jest-matcher-percent-error.svg)]()
+[![Travis](https://img.shields.io/travis/ianprime0509/jest-matcher-percent-error.svg)]()
+
 This is a simple matcher for [Jest](https://facebook.github.io/jest) that tests
 whether the actual value matches the expected value, within some specified
 percent error.
