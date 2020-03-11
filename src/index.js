@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Ian Johnson
+ * Copyright 2018-2020 Ian Johnson
  *
  * This is free software, distributed under the MIT license.  A copy of the
  * license can be found in the LICENSE file in the project root, or at
@@ -25,45 +25,49 @@ export default function toBeWithinPercent(actual, expected, percent) {
   if (expected === 0) {
     throw new Error(
       this.utils.matcherHint('[.not].toBeWithinPercent', undefined, undefined, {
-        secondArgument
+        secondArgument,
       }) +
-      '\n\n' +
-      'Expected value cannot be zero.'
+        '\n\n' +
+        'Expected value cannot be zero.'
     );
   }
 
   const error = percentError(actual, expected);
-  const pass = error <= percent;
-
-  const message = pass
-    ? () =>
-      this.utils.matcherHint('.not.toBeWithinPercent', undefined, undefined, {
-        secondArgument
-      }) +
-      '\n\n' +
-      `Expected value not to be within ${this.utils.printExpected(
-        percent,
-      )}% of:\n` +
-      `  ${this.utils.printExpected(expected)}\n` +
-      'Received:\n' +
-      `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
-        error,
-      )}% error)`
-    : () =>
-      this.utils.matcherHint('.toBeWithinPercent', undefined, undefined, {
-        secondArgument
-      }) +
-      '\n\n' +
-      `Expected value to be within ${this.utils.printExpected(
-        percent,
-      )}% of:\n` +
-      `  ${this.utils.printExpected(expected)}\n` +
-      'Received:\n' +
-      `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
-        error,
-      )}% error)`;
-
-  return { message, pass };
+  if (error <= percent) {
+    return {
+      message: () =>
+        this.utils.matcherHint('.not.toBeWithinPercent', undefined, undefined, {
+          secondArgument,
+        }) +
+        '\n\n' +
+        `Expected value not to be within ${this.utils.printExpected(
+          percent
+        )}% of:\n` +
+        `  ${this.utils.printExpected(expected)}\n` +
+        'Received:\n' +
+        `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
+          error
+        )}% error)`,
+      pass: true,
+    };
+  } else {
+    return {
+      message: () =>
+        this.utils.matcherHint('.toBeWithinPercent', undefined, undefined, {
+          secondArgument,
+        }) +
+        '\n\n' +
+        `Expected value to be within ${this.utils.printExpected(
+          percent
+        )}% of:\n` +
+        `  ${this.utils.printExpected(expected)}\n` +
+        'Received:\n' +
+        `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
+          error
+        )}% error)`,
+      pass: false,
+    };
+  }
 }
 
 /**
@@ -71,5 +75,5 @@ export default function toBeWithinPercent(actual, expected, percent) {
  * expected value.
  */
 function percentError(actual, expected) {
-  return 100 * Math.abs(actual - expected) / expected;
+  return (100 * Math.abs(actual - expected)) / expected;
 }
