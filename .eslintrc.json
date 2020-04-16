@@ -1,7 +1,6 @@
 {
   "env": {
-    "es6": true,
-    "jest": true,
+    "es2020": true,
     "node": true
   },
   "parser": "@typescript-eslint/parser",
@@ -11,19 +10,5 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "impliedStrict": true
-    }
-  },
-  "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "no-console": "off",
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"]
-  }
+  ]
 }
