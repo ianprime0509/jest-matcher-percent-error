@@ -4,14 +4,17 @@
   "description": "A Jest matcher for testing percent error.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
   "files": [
     "lib",
     "src"
   ],
   "scripts": {
-    "check-types": "tsc",
+    "build": "rollup -c",
+    "check-types": "tsc -p tsconfig.check.json",
     "eslint": "eslint --ext .js,.ts src",
-    "prepare": "rollup -c",
+    "gen-declarations": "tsc -p tsconfig.declarations.json",
+    "prepare": "run-p build gen-declarations",
     "test": "run-p check-types eslint test-only",
     "test-only": "jest"
   },
