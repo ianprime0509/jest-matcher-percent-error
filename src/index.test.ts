@@ -30,7 +30,11 @@ describe('.toBeWithinPercent()', () => {
 
   test('fails when the actual or expected value is not a number', () => {
     expect(() => expect('hi').toBeWithinPercent(5, 50)).toThrow();
-    expect(() => expect(6).toBeWithinPercent([6], 90)).toThrow();
-    expect(() => expect({}).toBeWithinPercent([], 1)).toThrow();
+    expect(() =>
+      expect(6).toBeWithinPercent(([6] as unknown) as number, 90)
+    ).toThrow();
+    expect(() =>
+      expect({}).toBeWithinPercent(([] as unknown) as number, 1)
+    ).toThrow();
   });
 });

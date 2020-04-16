@@ -3,10 +3,13 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "node": "current"
-        }
+        "targets": "maintained node versions"
       }
-    ]
+    ],
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread"
   ]
 }

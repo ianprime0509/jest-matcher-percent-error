@@ -5,18 +5,42 @@
  * license can be found in the LICENSE file in the project root, or at
  * https://opensource.org/licenses/MIT.
  */
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Matchers<R> {
+      /**
+       * Ensures that the actual value is within some percent error of the expected value.
+       *
+       * @param expected the expected value
+       * @param percent the maximum percent error to tolerate
+       */
+      toBeWithinPercent(expected: number, percent: number): R;
+    }
+  }
+}
+
 /**
- * Check whether the actual value is within the given percent error of the
+ * Returns the percent error of the given actual value, relative to the given
+ * expected value.
+ */
+function percentError(actual: number, expected: number): number {
+  return (100 * Math.abs(actual - expected)) / expected;
+}
+
+/**
+ * Checks whether the actual value is within the given percent error of the
  * expected value.
  *
  * The percent error check is inclusive.
- *
- * @param {number} actual
- * @param {number} expected
- * @param {number} percent
- * @return {{message: (function(): string), pass: boolean}}
  */
-export default function toBeWithinPercent(actual, expected, percent) {
+export default function toBeWithinPercent(
+  this: jest.MatcherUtils,
+  actual: number,
+  expected: number,
+  percent: number
+): { message: () => string; pass: boolean } {
   const secondArgument = 'percent';
   this.utils.ensureNumbers(actual, expected, '.toBeWithinPercent');
 
@@ -35,7 +59,7 @@ export default function toBeWithinPercent(actual, expected, percent) {
   const error = percentError(actual, expected);
   if (error <= percent) {
     return {
-      message: () =>
+      message: (): string =>
         this.utils.matcherHint('.not.toBeWithinPercent', undefined, undefined, {
           secondArgument,
         }) +
@@ -52,7 +76,7 @@ export default function toBeWithinPercent(actual, expected, percent) {
     };
   } else {
     return {
-      message: () =>
+      message: (): string =>
         this.utils.matcherHint('.toBeWithinPercent', undefined, undefined, {
           secondArgument,
         }) +
@@ -68,12 +92,4 @@ export default function toBeWithinPercent(actual, expected, percent) {
       pass: false,
     };
   }
-}
-
-/**
- * Return the percent error of the given actual value, relative to the given
- * expected value.
- */
-function percentError(actual, expected) {
-  return (100 * Math.abs(actual - expected)) / expected;
 }
