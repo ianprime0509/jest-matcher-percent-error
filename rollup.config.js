@@ -1,5 +1,4 @@
 import babel from 'rollup-plugin-babel';
-import typescript from '@rollup/plugin-typescript';
 
 export default {
   input: 'src/index.ts',
@@ -14,9 +13,9 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
     babel({
       exclude: 'node_modules/**',
+      extensions: ['.ts', '.js'],
     }),
   ],
 };
