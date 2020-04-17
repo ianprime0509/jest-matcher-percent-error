@@ -13,8 +13,8 @@ declare global {
       /**
        * Ensures that the actual value is within some percent error of the expected value.
        *
-       * @param expected the expected value
-       * @param percent the maximum percent error to tolerate
+       * @param expected - the expected value
+       * @param percent - the maximum percent error to tolerate
        */
       toBeWithinPercent(expected: number, percent: number): R;
     }
@@ -45,7 +45,7 @@ export default function toBeWithinPercent(
   this.utils.ensureNumbers(actual, expected, '.toBeWithinPercent');
 
   // If the expected value is zero, we'll be dividing by zero in the
-  // percentError function.
+  // percentError function
   if (expected === 0) {
     throw new Error(
       this.utils.matcherHint('[.not].toBeWithinPercent', undefined, undefined, {
