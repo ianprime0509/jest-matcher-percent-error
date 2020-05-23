@@ -6,12 +6,12 @@
  * https://opensource.org/licenses/MIT.
  */
 /* eslint-env jest */
-import toBeWithinPercent from '.';
+import toBeWithinPercent from ".";
 
 expect.extend({ toBeWithinPercent });
 
-describe('.toBeWithinPercent()', () => {
-  test('correctly identifies passing cases', () => {
+describe(".toBeWithinPercent()", () => {
+  test("correctly identifies passing cases", () => {
     expect(5).toBeWithinPercent(5, 1);
     expect(110).toBeWithinPercent(100, 10);
     expect(105).toBeWithinPercent(101, 5);
@@ -20,17 +20,17 @@ describe('.toBeWithinPercent()', () => {
     expect(0).toBeWithinPercent(5, 150);
   });
 
-  test('correctly identifies failing cases', () => {
+  test("correctly identifies failing cases", () => {
     expect(5).not.toBeWithinPercent(1, 100);
     expect(-1).not.toBeWithinPercent(2, 50);
   });
 
-  test('fails when the expected value is zero', () => {
+  test("fails when the expected value is zero", () => {
     expect(() => expect(5).toBeWithinPercent(0, 100)).toThrow();
   });
 
-  test('fails when the actual or expected value is not a number', () => {
-    expect(() => expect('hi').toBeWithinPercent(5, 50)).toThrow();
+  test("fails when the actual or expected value is not a number", () => {
+    expect(() => expect("hi").toBeWithinPercent(5, 50)).toThrow();
     expect(() =>
       expect(6).toBeWithinPercent(([6] as unknown) as number, 90)
     ).toThrow();

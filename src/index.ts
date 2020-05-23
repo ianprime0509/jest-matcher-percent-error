@@ -41,18 +41,18 @@ export default function toBeWithinPercent(
   expected: number,
   percent: number
 ): { message: () => string; pass: boolean } {
-  const secondArgument = 'percent';
-  this.utils.ensureNumbers(actual, expected, '.toBeWithinPercent');
+  const secondArgument = "percent";
+  this.utils.ensureNumbers(actual, expected, ".toBeWithinPercent");
 
   // If the expected value is zero, we'll be dividing by zero in the
   // percentError function
   if (expected === 0) {
     throw new Error(
-      this.utils.matcherHint('[.not].toBeWithinPercent', undefined, undefined, {
+      this.utils.matcherHint("[.not].toBeWithinPercent", undefined, undefined, {
         secondArgument,
       }) +
-        '\n\n' +
-        'Expected value cannot be zero.'
+        "\n\n" +
+        "Expected value cannot be zero."
     );
   }
 
@@ -60,15 +60,15 @@ export default function toBeWithinPercent(
   if (error <= percent) {
     return {
       message: (): string =>
-        this.utils.matcherHint('.not.toBeWithinPercent', undefined, undefined, {
+        this.utils.matcherHint(".not.toBeWithinPercent", undefined, undefined, {
           secondArgument,
         }) +
-        '\n\n' +
+        "\n\n" +
         `Expected value not to be within ${this.utils.printExpected(
           percent
         )}% of:\n` +
         `  ${this.utils.printExpected(expected)}\n` +
-        'Received:\n' +
+        "Received:\n" +
         `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
           error
         )}% error)`,
@@ -77,15 +77,15 @@ export default function toBeWithinPercent(
   } else {
     return {
       message: (): string =>
-        this.utils.matcherHint('.toBeWithinPercent', undefined, undefined, {
+        this.utils.matcherHint(".toBeWithinPercent", undefined, undefined, {
           secondArgument,
         }) +
-        '\n\n' +
+        "\n\n" +
         `Expected value to be within ${this.utils.printExpected(
           percent
         )}% of:\n` +
         `  ${this.utils.printExpected(expected)}\n` +
-        'Received:\n' +
+        "Received:\n" +
         `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
           error
         )}% error)`,
