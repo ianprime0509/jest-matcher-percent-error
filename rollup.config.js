@@ -6,6 +6,7 @@ export default {
     {
       file: "lib/index.js",
       format: "cjs",
+      exports: "default",
     },
     {
       file: "lib/index.mjs",

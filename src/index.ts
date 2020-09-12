@@ -6,9 +6,11 @@
  * https://opensource.org/licenses/MIT.
  */
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace jest {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface Matchers<R> {
       /**
        * Ensures that the actual value is within some percent error of the expected value.
