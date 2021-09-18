@@ -29,7 +29,7 @@
     "matcher",
     "relative"
   ],
-  "author": "Ian Johnson <ianprime0509@gmail.com>",
+  "author": "Ian Johnson <ian@ianjohnson.dev>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ianprime0509/jest-matcher-percent-error/issues"
