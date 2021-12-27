@@ -1,7 +1,7 @@
 # jest-matcher-percent-error
 
 [![npm](https://img.shields.io/npm/v/jest-matcher-percent-error.svg)](https://www.npmjs.com/package/jest-matcher-percent-error)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ianprime0509/jest-matcher-percent-error/Node.js%20CI)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ianprime0509/jest-matcher-percent-error/CI)
 
 This is a simple matcher for [Jest](https://facebook.github.io/jest) that tests
 whether the actual value matches the expected value, within some specified
@@ -20,16 +20,16 @@ $ npm install --save-dev jest-matcher-percent-error
 To test whether the result of `foo()` is within 10% of 100:
 
 ```javascript
-import toBeWithinPercent from 'jest-matcher-percent-error';
+import toBeWithinPercent from "jest-matcher-percent-error";
 
 expect.extend({ toBeWithinPercent });
 
-test('foo works', () => {
+test("foo works", () => {
   expect(foo()).toBeWithinPercent(100, 10);
 });
 ```
 
 ## License
 
-This is free software, distributed under the [MIT
-license](https://opensource.org/licenses/MIT).
+This is free software, distributed under the
+[MIT license](https://opensource.org/licenses/MIT).
