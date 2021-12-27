@@ -1,6 +1,5 @@
 {
   "name": "jest-matcher-percent-error",
-  "version": "2.0.0",
   "description": "A Jest matcher for testing percent error.",
   "files": [
     "dist"
@@ -54,6 +53,7 @@
     "jest": "^27.4.5",
     "npm-run-all": "^4.1.5",
     "prettier": "2.5.1",
+    "semantic-release": "^18.0.1",
     "ts-jest": "^27.1.2",
     "ts-jest-resolver": "^2.0.0",
     "typescript": "^4.5.4",
