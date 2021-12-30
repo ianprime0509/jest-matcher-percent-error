@@ -4,13 +4,14 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/jest-matcher-percent-error.umd.js",
-  "module": "./dist/jest-matcher-percent-error.es.js",
+  "main": "./dist/jest-matcher-percent-error.umd.cjs",
+  "module": "./dist/jest-matcher-percent-error.es.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/jest-matcher-percent-error.es.js",
-      "require": "./dist/jest-matcher-percent-error.umd.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/jest-matcher-percent-error.es.mjs",
+      "require": "./dist/jest-matcher-percent-error.umd.cjs"
     }
   },
   "scripts": {

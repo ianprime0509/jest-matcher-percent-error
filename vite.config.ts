@@ -6,7 +6,10 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "JestMatcherPercentError",
-      fileName: (format) => `jest-matcher-percent-error.${format}.js`,
+      fileName: (format) =>
+        `jest-matcher-percent-error.${format}.${
+          format === "es" ? "mjs" : "cjs"
+        }`,
     },
     sourcemap: true,
   },
