@@ -1,7 +1,7 @@
 # jest-matcher-percent-error
 
 [![npm](https://img.shields.io/npm/v/jest-matcher-percent-error.svg)](https://www.npmjs.com/package/jest-matcher-percent-error)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ianprime0509/jest-matcher-percent-error/CI)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ianprime0509/jest-matcher-percent-error/ci.yml?branch=main)
 
 This is a simple matcher for [Jest](https://facebook.github.io/jest) that tests
 whether the actual value matches the expected value, within some specified
