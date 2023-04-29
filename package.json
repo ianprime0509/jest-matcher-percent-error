@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/ianprime0509/jest-matcher-percent-error#readme",
   "devDependencies": {
-    "@types/jest": "^29.5.0",
+    "@types/jest": "^29.5.1",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "eslint": "^8.39.0",
