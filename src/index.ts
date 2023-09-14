@@ -33,7 +33,7 @@ export default function toBeWithinPercent(
   this: jest.MatcherUtils,
   actual: number,
   expected: number,
-  percent: number
+  percent: number,
 ): { message: () => string; pass: boolean } {
   const secondArgument = "percent";
   this.utils.ensureNumbers(actual, expected, ".toBeWithinPercent");
@@ -46,7 +46,7 @@ export default function toBeWithinPercent(
         secondArgument,
       }) +
         "\n\n" +
-        "Expected value cannot be zero."
+        "Expected value cannot be zero.",
     );
   }
 
@@ -59,12 +59,12 @@ export default function toBeWithinPercent(
         }) +
         "\n\n" +
         `Expected value not to be within ${this.utils.printExpected(
-          percent
+          percent,
         )}% of:\n` +
         `  ${this.utils.printExpected(expected)}\n` +
         "Received:\n" +
         `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
-          error
+          error,
         )}% error)`,
       pass: true,
     };
@@ -76,12 +76,12 @@ export default function toBeWithinPercent(
         }) +
         "\n\n" +
         `Expected value to be within ${this.utils.printExpected(
-          percent
+          percent,
         )}% of:\n` +
         `  ${this.utils.printExpected(expected)}\n` +
         "Received:\n" +
         `  ${this.utils.printReceived(actual)} (${this.utils.printReceived(
-          error
+          error,
         )}% error)`,
       pass: false,
     };
