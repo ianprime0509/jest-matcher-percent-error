@@ -38,7 +38,7 @@
     "relative"
   ],
   "author": "Ian Johnson <ian@ianjohnson.dev>",
-  "license": "MIT",
+  "license": "0BSD",
   "bugs": {
     "url": "https://github.com/ianprime0509/jest-matcher-percent-error/issues"
   },
